@@ -8,6 +8,8 @@ import com.Aries.associates.model.Buyer;
 public interface AdimServiceInterFace {
 
 	List<Buyer> getAllBuyer();
+
+	Buyer addBuyer(Buyer buyer);
 	
 	
 

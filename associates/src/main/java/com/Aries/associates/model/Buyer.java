@@ -11,7 +11,8 @@ public class Buyer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long buyerId;
 	private String buyerName;
-	private Double investment;
+	private Double invoiceAmount;
+	private Long phoneNumber;
 
 	public Long getBuyerId() {
 		return buyerId;
@@ -29,12 +30,22 @@ public class Buyer {
 		this.buyerName = buyerName;
 	}
 
-	public Double getInvestment() {
-		return investment;
+	public Double getInvoiceAmount() {
+		return invoiceAmount;
 	}
 
-	public void setInvestment(Double investment) {
-		this.investment = investment;
+	public void setInvoiceAmount(Double invoiceAmount) {
+		this.invoiceAmount = invoiceAmount;
 	}
+
+	public Long getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(Long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+
 
 }

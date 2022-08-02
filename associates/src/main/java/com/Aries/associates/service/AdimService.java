@@ -3,6 +3,8 @@ package com.Aries.associates.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Component;
 
 import com.Aries.associates.model.Buyer;
@@ -17,7 +19,13 @@ public class AdimService implements AdimServiceInterFace {
 
 	@Override
 	public List<Buyer> getAllBuyer() {
-		return adimInterFace.findAll();
+		return adimInterFace.findAll(Sort.by(Direction.DESC, "buyerId"));
 	}
+
+	@Override
+	public Buyer addBuyer(Buyer buyer) {
+		return adimInterFace.save(buyer);
+	}
+
 
 }
