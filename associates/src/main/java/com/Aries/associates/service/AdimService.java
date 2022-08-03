@@ -27,5 +27,11 @@ public class AdimService implements AdimServiceInterFace {
 		return adimInterFace.save(buyer);
 	}
 
+	@Override
+	public void deleteBuyer(Long id) {
+		adimInterFace.deleteById(id);
+		
+	}
+
 
 }

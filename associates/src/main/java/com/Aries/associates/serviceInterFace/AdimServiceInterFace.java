@@ -10,6 +10,8 @@ public interface AdimServiceInterFace {
 	List<Buyer> getAllBuyer();
 
 	Buyer addBuyer(Buyer buyer);
+
+	void deleteBuyer(Long id);
 	
 	
 
