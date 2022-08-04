@@ -33,5 +33,10 @@ public class AdimService implements AdimServiceInterFace {
 		
 	}
 
+	@Override
+	public List<Buyer> getBuyersName(String name) {
+		return adimInterFace.getBuyersName(name);
+	}
+
 
 }

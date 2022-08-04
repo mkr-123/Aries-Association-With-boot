@@ -41,5 +41,12 @@ public class AdminController {
 		adimServiceInterFace.deleteBuyer(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	@GetMapping("/findByName/{name}")
+	public ResponseEntity<List<Buyer>> findByName(@PathVariable("name") String name)
+	{
+		List <Buyer> buyer=adimServiceInterFace.getBuyersName(name);
+		return new ResponseEntity<>(buyer,HttpStatus.OK);
+	}
 
 }

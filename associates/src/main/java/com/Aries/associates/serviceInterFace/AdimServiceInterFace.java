@@ -12,6 +12,8 @@ public interface AdimServiceInterFace {
 	Buyer addBuyer(Buyer buyer);
 
 	void deleteBuyer(Long id);
+
+	List<Buyer> getBuyersName(String name);
 	
 	
 
