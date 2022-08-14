@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Aries.associates.model.ApplicationUser;
 import com.Aries.associates.model.Buyer;
 import com.Aries.associates.serviceInterFace.AdimServiceInterFace;
 
@@ -22,6 +23,7 @@ public class AdminController {
 	
 	@Autowired
 	private AdimServiceInterFace adimServiceInterFace;
+	
 	
 	@GetMapping("/allBuyer")
 	public ResponseEntity<List<Buyer>> getAllBuyer(){
@@ -47,6 +49,26 @@ public class AdminController {
 	{
 		List <Buyer> buyer=adimServiceInterFace.getBuyersName(name);
 		return new ResponseEntity<>(buyer,HttpStatus.OK);
+	}
+	
+	@GetMapping("/allUsers")
+	public ResponseEntity<List<ApplicationUser>> getApplicationUser()
+	{
+		List <ApplicationUser>applicationUser=adimServiceInterFace.getApplicationUser();
+		return new ResponseEntity<>(applicationUser,HttpStatus.OK);
+	}
+	
+	@PostMapping("/saveUser")
+	public ResponseEntity<ApplicationUser> saveUser(@RequestBody ApplicationUser appUsers){
+		ApplicationUser newAppuser=adimServiceInterFace.saveAppUser(appUsers);
+		return new ResponseEntity<ApplicationUser>(newAppuser,HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/deleteUser/{userId}")
+	public ResponseEntity<?> deleteUser(@PathVariable("userId") Long userId)
+	{
+		adimServiceInterFace.deletUser(userId);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }
